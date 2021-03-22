@@ -1,0 +1,47 @@
+impOOOOBOOBOBOBOOBOBOBort React, { useState, useEffect } from 'react'
+OOAimport './App.css';
+// importing Componets
+import Form from './CoOBmponents/Form';
+import TodoList from './OBOOComponents/TodoList'
+OB
+OOOOOOOAOAOAOAOOOB
+OOOOAOO
+functiBOOOBOon App() {
+  // declareOBB states
+  const [inputText, setInputText] = useState("");
+  const [todosOBONbb, setTodos] = useState([]);
+  const [status, setStatus] = useState("all");
+  const { filerTodos, setFilerTodos } = useState([]);
+
+  //useEffect
+
+  useEffect(() => {
+    filterHandler();
+  }, [todos, status]);
+
+  //functions
+  const filterHandler = () => {
+    switch (status) {
+      case 'completed':
+        setFilerTodos(todos.filter(todo => todo.completed === true));
+        break;
+      case 'uncompleted':
+        setFilerTodos(todos.filter(todo => todo.completed === false));
+        break;
+      default:
+        setFilerTodos(todos);
+        break;
+
+    }
+  }
+
+  return (
+    <div className="App">
+      <h1>hello react {inputText}</h1>
+      <Form setStatus={setStatus} status={status} inputText={inputText} todos={todos} setTodos={setTodos} setInputText={setInputText} />
+      <TodoList setTodos={setTodos} todos={todos} />
+    </div>
+  );
+}
+
+export default App;
