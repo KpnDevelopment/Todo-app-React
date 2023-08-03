@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: ["lts/*"]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -32,4 +32,4 @@ jobs:
       - name: copy to nginx location
         run: cp -r build/* /var/www/test/
       - name: nginx restart
-        run: echo SUPER_SECRET | sudo systemctl restart nginx
+        run: echo $SUPER_SECRET | sudo -S systemctl restart nginx
