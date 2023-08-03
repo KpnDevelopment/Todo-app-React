@@ -27,6 +27,7 @@ jobs:
         env:
           SUPER_SECRET: ${{ secrets.SUDO }}
       - run: npm i
+        run:npm i
       - name: building react
         run: npm run build
       - name: copy to nginx location
