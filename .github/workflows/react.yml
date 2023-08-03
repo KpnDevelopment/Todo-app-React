@@ -26,9 +26,9 @@ jobs:
       - name: env load
         env:
           SUPER_SECRET: ${{ secrets.SUDO }}
-        run: npm i
+        run: yarn
       - name: building react
-        run: npm run build
+        run: yarn run build
       - name: copy to nginx location
         run: cp -r build/* /var/www/test/
       - name: nginx restart
